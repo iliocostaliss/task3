@@ -11,7 +11,7 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
     if account_info.startswith("Счет"):
         account_number = account_info[5:].replace(" ", "")
         if not account_number.isdigit():
-            return account_info
+            raise ValueError("Номер счёта должен состоять из цифр!")
 
         masked_number = get_mask_account(account_number)
         return f"Счет {masked_number}"
@@ -20,7 +20,7 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
         card_number_parts = account_info.split()
         card_number = card_number_parts[-1]
         if not card_number.isdigit():
-            return account_info
+            raise ValueError("Номер карты должен состоять из цифр!")
 
         masked_number = get_mask_card_number(card_number)
         return " ".join(card_number_parts[:-1] + [masked_number])
