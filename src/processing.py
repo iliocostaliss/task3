@@ -21,4 +21,4 @@ def sort_by_date(list_dict: Iterable[Dict[str, Any]], reverse: bool = True) -> L
     Функция должна возвращать новый список, отсортированный по дате (date).
     """
 
-    return sorted(list_dict, key=lambda x: x["date"])
+    return sorted(list_dict, key=lambda x: x["date"], reverse=reverse)
