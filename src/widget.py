@@ -18,12 +18,12 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
 
     else:
         card_number_parts = account_info.split()
-        card_number = card_number_parts[-1]
+        card_number = "".join(card_number_parts[1:])
         if not card_number.isdigit():
             raise ValueError("Номер карты должен состоять из цифр!")
 
         masked_number = get_mask_card_number(card_number)
-        return " ".join(card_number_parts[:-1] + [masked_number])
+        return f"{card_number_parts[0]} {masked_number}"
 
 
 def get_date(date_str: Union[str]) -> Union[str]:
