@@ -8,6 +8,9 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
     Функция, которая умеет обрабатывать информацию как о картах, так и о счетах.
     Принимает на вход строку, содержащую тип (карту или счет) и подбирает подходящую под этот тип маскировку.
     """
+    if not account_info:
+        raise ValueError("Введите номер карты или счёта!")
+
     if account_info.startswith("Счет"):
         account_number = account_info[5:].replace(" ", "")
         if not account_number.isdigit():
@@ -18,12 +21,20 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
 
     else:
         card_number_parts = account_info.split()
-        card_number = "".join(card_number_parts[1:])
-        if not card_number.isdigit():
+        if len(card_number_parts) < 2:
+            raise ValueError("Некорректный формат ввода!")
+
+        card_type = " ".join(card_number_parts[:-1])
+        card_number = card_number_parts[-1]
+        card_number_cleaned = ""
+        for num in card_number:
+            if num.isdigit():
+                card_number_cleaned += num
+        if not card_number_cleaned.isdigit():
             raise ValueError("Номер карты должен состоять из цифр!")
 
-        masked_number = get_mask_card_number(card_number)
-        return f"{card_number_parts[0]} {masked_number}"
+        masked_number = get_mask_card_number(card_number_cleaned)
+        return f"{card_type} {masked_number}"
 
 
 def get_date(date_str: Union[str]) -> Union[str]:
