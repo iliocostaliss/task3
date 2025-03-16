@@ -26,14 +26,14 @@ def mask_account_card(account_info: Union[str]) -> Union[str]:
 
         card_type = " ".join(card_number_parts[:-1])
         card_number = card_number_parts[-1]
-        card_number_cleaned = ""
+        card_number_clear = ""
         for num in card_number:
             if num.isdigit():
-                card_number_cleaned += num
-        if not card_number_cleaned.isdigit():
+                card_number_clear += num
+        if not card_number_clear.isdigit():
             raise ValueError("Номер карты должен состоять из цифр!")
 
-        masked_number = get_mask_card_number(card_number_cleaned)
+        masked_number = get_mask_card_number(card_number_clear)
         return f"{card_type} {masked_number}"
 
 
@@ -42,6 +42,8 @@ def get_date(date_str: Union[str]) -> Union[str]:
     Функция, которая принимает на вход строку с датой в формате "2024-03-11T02:26:18.671407"
     и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024").
     """
+    if not date_str:
+        return "Введите дату."
     date_part = date_str.split("T")[0]
     year, month, day = date_part.split("-")
     formatted_date = f"{day}.{month}.{year}"
