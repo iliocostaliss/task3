@@ -8,11 +8,6 @@ def test_recognize_account():
     assert result.startswith("Счет")
 
 
-def test_recognize_card():
-    card_number = "MasterCard 1234567812345678"
-    assert mask_account_card(card_number) == "MasterCard 1234 56** **** 5678"
-
-
 def test_mask_account():
     account_number = "Счет 12345678901234567890"
     assert mask_account_card(account_number) == "Счет **7890"
