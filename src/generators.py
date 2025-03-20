@@ -1,5 +1,4 @@
-from turtledemo.penrose import start
-from typing import Dict, List, Iterator, Generator
+from typing import Dict, Generator, Iterator, List
 
 
 def filter_by_currency(transactions: List[Dict], currency: str) -> Iterator[Dict]:
@@ -29,8 +28,5 @@ def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
     for num in range(start, end + 1):
         card_number = str(num)
         card_number = "0" * (16 - (len(card_number))) + card_number
-        formated_card_number = " ".join([card_number[i:i+4] for i in range(0, 16, 4)])
+        formated_card_number = " ".join([card_number[i: i + 4] for i in range(0, 16, 4)])
         yield formated_card_number
-
-
-
