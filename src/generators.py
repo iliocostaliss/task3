@@ -3,8 +3,7 @@ from typing import Dict, Generator, Iterator, List
 
 def filter_by_currency(transactions: List[Dict], currency: str) -> Iterator[Dict]:
     """
-    Функция возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной
-    (например, USD).
+    Функция фильтрует транзакции по заданной валюте и возвращает итератор.
     """
     for transaction in transactions:
         if transaction.get("operationAmount", {}).get("currency", {}).get("code") == currency:

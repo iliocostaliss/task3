@@ -3,12 +3,14 @@ import pytest
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
-@pytest.mark.parametrize("currency, expected_result", [
-    ("USD", "USD"),
-    ("RUB", "RUB"),
-    ("EUR", "EUR"),
-])
-
+@pytest.mark.parametrize(
+    "currency, expected_result",
+    [
+        ("USD", "USD"),
+        ("RUB", "RUB"),
+        ("EUR", "EUR"),
+    ],
+)
 def test_filter_by_currency(transactions, currency, expected_result):
     """Тестирование функции filter_by_currency"""
     filtered_transactions = list(filter_by_currency(transactions, currency))
