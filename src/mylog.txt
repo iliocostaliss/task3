@@ -24,3 +24,11 @@
 2025-03-31 14:43:37 - my_function - Error: TypeError - my_function() missing 1 required positional argument: 'y' - Input: args: (5,), kwargs: {}
 2025-03-31 14:43:59 - my_function - Started - args: (3,), kwargs: {'y': 5}
 2025-03-31 14:43:59 - my_function - Finished: 8
+2025-03-31 15:39:51 - my_function - Started with inputs: (1, 2), {}
+2025-03-31 15:39:51 - my_function - Finished successfully with result: 3
+2025-03-31 15:40:36 - my_function - Started with inputs: (1, 2), {}
+2025-03-31 15:40:36 - my_function - Finished successfully with result: 3
+2025-03-31 15:40:36 - my_function - Started with inputs: (1,), {'y': 9}
+2025-03-31 15:40:36 - my_function - Finished successfully with result: 10
+2025-03-31 15:40:36 - my_function - Started with inputs: (2,), {}
+2025-03-31 15:40:36 - my_function - Error: TypeError - my_function() missing 1 required positional argument: 'y' - Inputs: (2,), {}
