@@ -1,9 +1,10 @@
+from datetime import datetime
 from functools import wraps
-from  datetime import datetime
 
 
 def log(filename=None):
     def decorator(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             """
             Автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки.
@@ -25,14 +26,14 @@ def log(filename=None):
                 raise
 
         return wrapper
+
     return decorator
 
 
 def _write_log(message, filename=None):
     """Функция для записи лога в файл или консоль."""
     if filename:
-        with open(filename, 'a') as f:
-            f.write(message + '\n')
+        with open(filename, "a") as f:
+            f.write(message + "\n")
     else:
         print(message)
-

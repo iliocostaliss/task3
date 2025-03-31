@@ -1,0 +1,26 @@
+2025-03-31 14:32:56 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:32:56 - my_function - Finished: 3
+2025-03-31 14:33:17 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:33:17 - my_function - Finished: 3
+2025-03-31 14:33:22 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:33:22 - my_function - Finished: 3
+2025-03-31 14:33:32 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:33:32 - my_function - Finished: 3
+2025-03-31 14:37:30 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:37:30 - my_function - Finished: 3
+2025-03-31 14:37:30 - my_function - Started - args: (3, 't'), kwargs: {}
+2025-03-31 14:37:30 - my_function - Error: TypeError - unsupported operand type(s) for +: 'int' and 'str' - Input: args: (3, 't'), kwargs: {}
+2025-03-31 14:38:46 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:38:46 - my_function - Finished: 3
+2025-03-31 14:38:46 - my_function - Started - args: (3, 5), kwargs: {}
+2025-03-31 14:38:46 - my_function - Finished: 8
+2025-03-31 14:38:46 - my_function - Started - args: (5,), kwargs: {}
+2025-03-31 14:38:46 - my_function - Error: TypeError - my_function() missing 1 required positional argument: 'y' - Input: args: (5,), kwargs: {}
+2025-03-31 14:43:37 - my_function - Started - args: (1, 2), kwargs: {}
+2025-03-31 14:43:37 - my_function - Finished: 3
+2025-03-31 14:43:37 - my_function - Started - args: (3, 5), kwargs: {}
+2025-03-31 14:43:37 - my_function - Finished: 8
+2025-03-31 14:43:37 - my_function - Started - args: (5,), kwargs: {}
+2025-03-31 14:43:37 - my_function - Error: TypeError - my_function() missing 1 required positional argument: 'y' - Input: args: (5,), kwargs: {}
+2025-03-31 14:43:59 - my_function - Started - args: (3,), kwargs: {'y': 5}
+2025-03-31 14:43:59 - my_function - Finished: 8
