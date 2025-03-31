@@ -32,3 +32,15 @@
 2025-03-31 15:40:36 - my_function - Finished successfully with result: 10
 2025-03-31 15:40:36 - my_function - Started with inputs: (2,), {}
 2025-03-31 15:40:36 - my_function - Error: TypeError - my_function() missing 1 required positional argument: 'y' - Inputs: (2,), {}
+2025-03-31 15:47:50 - my_function - Started with inputs: (2,), {}
+2025-03-31 15:47:50 - my_function - Error: TypeError. Inputs: (2,), {}
+2025-03-31 15:48:36 - my_function - Started with inputs: (2,), {'y': 10}
+2025-03-31 15:48:36 - my_function - Finished successfully with result: 12
+2025-03-31 15:48:52 - my_function - Started with inputs: (2,), {'y': 10}
+2025-03-31 15:48:52 - my_function - Finished successfully with result: 12
+2025-03-31 15:48:52 - my_function - Started with inputs: (2,), {}
+2025-03-31 15:48:52 - my_function - Error: TypeError. Inputs: (2,), {}
+2025-03-31 18:40:02 - my_function - Started with inputs: (6, 4), {}
+2025-03-31 18:40:02 - my_function - Finished successfully with result: 10
+2025-03-31 18:42:22  my_function  Started with inputs: (6, 4), {}
+2025-03-31 18:42:22  my_function  Finished successfully with result: 10

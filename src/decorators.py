@@ -12,16 +12,16 @@ def log(filename=None):
             func_name = func.__name__
             date_time = datetime.now().isoformat(sep=" ", timespec="seconds")
             input_params = f"{args}, {kwargs}"
-            start_msg = f"{date_time} - {func_name} - Started with inputs: {input_params}"
+            start_msg = f"{date_time}  {func_name}  Started with inputs: {input_params}"
             _write_log(start_msg, filename)
 
             try:
                 result = func(*args, **kwargs)
-                finish_msg = f"{date_time} - {func_name} - Finished successfully with result: {result}"
+                finish_msg = f"{date_time}  {func_name}  Finished successfully with result: {result}"
                 _write_log(finish_msg, filename)
                 return result
             except Exception as e:
-                error_msg = f"{date_time} - {func_name} - Error: {type(e).__name__} - {str(e)} - Inputs: {input_params}"
+                error_msg = f"{date_time}  {func_name}  Error: {type(e).__name__}. Inputs: {input_params}"
                 _write_log(error_msg, filename)
                 raise
 
@@ -37,3 +37,11 @@ def _write_log(message, filename=None):
             f.write(message + "\n")
     else:
         print(message)
+
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+
+
+my_function(6, 4)

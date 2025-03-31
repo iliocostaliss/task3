@@ -45,6 +45,17 @@ for description in transaction_descriptions(transactions):
 for card in card_number_generator(4000123456789010, 4000123456789015):
     print(card)
 
+## Модуль decorators.py
+
+Добавлен новый модуль, который содержит декоратор `log`, который логирует выполнение функций.
+
+### Пример работы декоратора:
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+my_function(1, 2)
+
 ## Использование:
 
 1. Убедитесь, что установлено последнее обновление банковского приложения.
