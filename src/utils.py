@@ -16,7 +16,3 @@ def dict_transactions(file_path):
                 return []
     except (FileNotFoundError, json.JSONDecodeError):
         return []
-
-
-transactions = dict_transactions("..\\data\\operations.json")
-print(transactions)
