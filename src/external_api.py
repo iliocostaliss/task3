@@ -1,6 +1,8 @@
+import json
 import os
-from dotenv import load_dotenv
+
 import requests
+from dotenv import load_dotenv
 
 load_dotenv(".env")
 
@@ -18,13 +20,22 @@ def convert_to_rub(amount, currency):
         return amount
     try:
         response = requests.get(
-            "https://api.apilayer.com/exchangerates_data/latest",
-            params={"symbols": "RUB", "base": currency},
-            headers=headers
+            "https://api.apilayer.com/exchangerates_data/convert",
+            params={"to": "RUB", "from": currency, "amount": amount},
+            headers=headers,
+            timeout=10,
         )
         response.raise_for_status()
         data = response.json()
-        rate = data["rates"]["RUB"]
-        return amount * rate
-    except (requests.exceptions.RequestException, KeyError) as e:
-        raise ValueError(f"Произошла ошибка конвертации: {e}")
+
+        if "result" not in data:
+            raise ValueError("Некорректный ответ API: отсутствует поле 'result'")
+
+        return data["result"]
+
+    except requests.exceptions.RequestException as e:
+        raise ValueError(f"Ошибка запроса к API: {str(e)}")
+    except KeyError as e:
+        raise ValueError(f"Некорректный формат ответа API: {str(e)}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Ошибка обработки ответа API: {str(e)}")
