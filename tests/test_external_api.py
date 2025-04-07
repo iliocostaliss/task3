@@ -14,13 +14,21 @@ def test_convert_rub_to_rub():
 
 def test_convert_usd_to_rub():
     with patch("src.external_api.requests.get") as mock_get:
-        fake_api_response = {"success": True, "rates": {"RUB": 84.66}}
+        fake_api_response = {
+            "success": True,
+            "query": {"from": "USD", "to": "RUB", "amount": 100},
+            "info": {"rate": 84.66},
+            "result": 8466.0
+        }
         mock_get.return_value.json.return_value = fake_api_response
         result = convert_to_rub(100, "USD")
-        assert result == 8466.0, "Должно быть 100 USD = 9050 RUB"
-        expected_url = "https://api.apilayer.com/exchangerates_data/latest"
+        assert result == 8466.0
+        expected_url = "https://api.apilayer.com/exchangerates_data/convert"
         mock_get.assert_called_once_with(
-            expected_url, params={"symbols": "RUB", "base": "USD"}, headers={"apikey": os.getenv("API_KEY")}
+            expected_url,
+            params={"to": "RUB", "from": "USD", "amount": 100},
+            headers={"apikey": os.getenv("API_KEY")},
+            timeout=10
         )
 
 
