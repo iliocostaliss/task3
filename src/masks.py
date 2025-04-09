@@ -1,12 +1,9 @@
-from typing import Union
 import logging
-
 import os
+from typing import Union
 
 logger = logging.getLogger("masks")
-file_handler = logging.FileHandler(
-    os.path.join(os.path.dirname(__file__), "..\\logs\\", "masks.log"), "w", "utf-8"
-)
+file_handler = logging.FileHandler(os.path.join(os.path.dirname(__file__), "..\\logs\\", "masks.log"), "w", "utf-8")
 file_formatter = logging.Formatter("%(asctime)s %(filename)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -20,8 +17,8 @@ def get_mask_card_number(card_number: Union[str, int]) -> Union[str]:
     XXXX XX** **** XXXX.
     """
     card_number_str = str(card_number).replace(" ", "")
-    card_type = ''
-    card_number_str_clear = ''
+    card_type = ""
+    card_number_str_clear = ""
     if not card_number_str.isdigit():
         for num in card_number_str:
             if not num.isdigit():
