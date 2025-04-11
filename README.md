@@ -68,13 +68,14 @@ read_transactions_excel(file_path): - функция для считывания
 
 # Пример использования read_transactions_csv(file_path):
 
-transactions = read_transactions_csv("transactions.csv")
-for transaction in transactions:
-    print(transaction)
+default_path = os.path.join("..", "data", "transactions.csv")
+result = read_transactions_csv(default_path)
+print(result)
 
 # Пример использования read_transactions_excel(file_path):
 
-transactions = read_transactions_excel("transactions_excel.xlsx")
+file_path = Path("../data/transactions_excel.xlsx").resolve()
+transactions = read_transactions_excel(file_path)
 print(transactions)
 
 ## Использование:
