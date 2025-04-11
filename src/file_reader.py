@@ -1,10 +1,11 @@
 import csv
 import os
+from typing import Dict, List
 
 import pandas as pd
 
 
-def read_transactions_csv(file_path):
+def read_transactions_csv(file_path: str) -> List[Dict]:
     """Функция для считывания финансовых операций из CSV"""
     file_path = os.path.join("..", "data", "transactions.csv")
     transaction = []
@@ -17,22 +18,15 @@ def read_transactions_csv(file_path):
     return transaction
 
 
-transactions = read_transactions_csv("transactions.csv")
-for transaction in transactions:
-    print(transaction)
-
-
-def read_transactions_excel(file_path):
+def read_transactions_excel(file_path: str) -> List[Dict]:
     """Функция для считывания финансовых операций из Excel"""
+    file_path = os.path.join("..", "data", "transactions_excel.xlsx")
+    if not os.path.exists(file_path):
+        raise FileNotFoundError("Файл не найден!")
     try:
-        file_path = os.path.join("..", "data", "transactions_excel.xlsx")
         df = pd.read_excel(file_path)
         transactions = df.to_dict("records")
 
         return transactions
-    except FileNotFoundError:
-        raise FileNotFoundError("Файл не найден!")
-
-
-transactions = read_transactions_excel("transactions_excel.xlsx")
-print(transactions)
+    except Exception:
+        raise ValueError("Ошибка при чтении файла Excel")

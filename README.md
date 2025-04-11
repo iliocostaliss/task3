@@ -56,6 +56,27 @@ def my_function(x, y):
     return x + y
 my_function(1, 2)
 
+## Новый функционал
+
+Добавлен модуль file_reader.py для работы с CSV и Excel файлами:
+
+read_transactions_csv(file_path) - функция для считывания финансовых операций из CSV.
+
+read_transactions_excel(file_path): - функция для считывания финансовых операций из Excel.
+
+### Примеры использования:
+
+# Пример использования read_transactions_csv(file_path):
+
+transactions = read_transactions_csv("transactions.csv")
+for transaction in transactions:
+    print(transaction)
+
+# Пример использования read_transactions_excel(file_path):
+
+transactions = read_transactions_excel("transactions_excel.xlsx")
+print(transactions)
+
 ## Использование:
 
 1. Убедитесь, что установлено последнее обновление банковского приложения.
