@@ -78,6 +78,45 @@ file_path = Path("../data/transactions_excel.xlsx").resolve()
 transactions = read_transactions_excel(file_path)
 print(transactions)
 
+## Обновление программы
+
+Добавлен модуль transaction_utils.py для фильтрации и подсчёта банковских операций:
+
+filter_operations_by_description(operations, search_string) - функция возвращает список словарей, у которых в описании
+есть указанная строка.
+
+count_operations_by_category(operations, categories) - функция считает количество операций в каждой категории.
+
+### Примеры использования:
+
+# Пример использования filter_operations_by_description(operations, search_string):
+
+operations = [
+    {"description": "Перевод организации", "amount": 16210},
+    {"description": "Перевод с карты на карту", "amount": 23182},
+    {"description": "Перевод со счета на счет", "amount": 11834},
+    {"description": "Открытие вклада", "amount": 29816},
+    {"description": "Перевод с карты на карту", "amount": 6750},
+    {"description": "Перевод со счета на счет", "amount": 58040},
+]
+
+result = filter_operations_by_description(operations, "Перевод со счета на счет")
+print(result)
+
+# Пример использования count_operations_by_category(operations, categories):
+
+operations = [
+    {"description": "Перевод организации", "amount": 16210},
+    {"description": "Перевод с карты на карту", "amount": 23182},
+    {"description": "Перевод со счета на счет", "amount": 11834},
+    {"description": "Открытие вклада", "amount": 29816},
+    {"description": "Перевод с карты на карту", "amount": 6750},
+    {"description": "Перевод со счета на счет", "amount": 58040},
+]
+
+categories = ["Вклад", "Счет", "Перевод"]
+print(count_operations_by_category(operations, categories))
+
 ## Использование:
 
 1. Убедитесь, что установлено последнее обновление банковского приложения.
