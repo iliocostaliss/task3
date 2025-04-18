@@ -38,9 +38,6 @@ def get_mask_card_number(card_number: Union[str, int]) -> Union[str]:
     return masked_number
 
 
-print(get_mask_card_number("1234567812345678"))
-
-
 def get_mask_account(account_number: Union[str, int]) -> Union[str]:
     """
     Функция маскировки номера банковского счета.
@@ -60,6 +57,3 @@ def get_mask_account(account_number: Union[str, int]) -> Union[str]:
     masked_account = "**" + last_four_nums
 
     return masked_account
-
-
-print(get_mask_account("123456781234567812345678"))

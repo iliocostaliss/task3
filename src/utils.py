@@ -28,7 +28,3 @@ def dict_transactions(file_path):
     except (FileNotFoundError, json.JSONDecodeError):
         logger.error("Файл не найден")
         return []
-
-
-transactions = dict_transactions("..\\data\\operations.json")
-print(transactions)
