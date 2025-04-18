@@ -31,6 +31,7 @@ def display_transaction(transaction: dict) -> None:
 
 
 def convert_transaction(transaction_list: list[dict]) -> list[dict]:
+    """Функция для получения ключей из списка транзакций."""
     result = []
     for tr in transaction_list:
         tr_temp = {
@@ -59,6 +60,7 @@ def get_file_reader(file_type: str):
 
 
 def main():
+    """Функция отвечает за основную логику проекта и связывает функциональности между собой."""
     try:
         print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.")
         print("Выберите необходимый пункт меню:")

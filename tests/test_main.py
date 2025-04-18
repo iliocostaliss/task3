@@ -14,6 +14,15 @@ def test_convert_transaction_empty():
     assert result == []
 
 
+def test_convert_transaction_missing_fields(convert_transactions):
+    result = convert_transaction([convert_transactions[0]])
+    assert len(result) == 1
+    assert result[0]["id"] == 939719570
+    assert result[0]["state"] == "EXECUTED"
+    assert result[0]["date"] == ""
+    assert result[0]["from"] == ""
+
+
 @patch("csv.DictReader")
 @patch("builtins.open", side_effect=FileNotFoundError)
 def test_read_transactions_csv_file_not_found(mock_open_file, mock_csv):

@@ -146,3 +146,26 @@ def count_categories():
         {"description": "Перевод с карты на карту"},
         {"description": "Открытие вклада"},
     ]
+
+
+@pytest.fixture
+def convert_transactions():
+    return [
+        {
+            "id": 939719570,
+            "state": "EXECUTED",
+            "date": "",
+            "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+            "description": "Перевод организации",
+            "from": "",
+            "to": "Счет 11776614605963066702",
+        },
+        {
+            "id": 587085106,
+            "state": "EXECUTED",
+            "date": "2018-03-23T10:45:06.972075",
+            "operationAmount": {"amount": "48223.05", "currency": {"name": "руб.", "code": "RUB"}},
+            "description": "Открытие вклада",
+            "to": "Счет 41421565395219882431",
+        },
+    ]
