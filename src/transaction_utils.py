@@ -1,5 +1,5 @@
 import re
-from collections import defaultdict
+from collections import Counter
 
 
 def filter_operations_by_description(operations, search_string):
@@ -19,10 +19,10 @@ def count_operations_by_category(operations, categories):
     """
     Функция считает количество операций в каждой категории.
     """
-    category_count = defaultdict(int)
+    category_count = Counter()
     for operation in operations:
         description = operation.get("description", "")
         for category in categories:
             if re.search(rf"\b{category}\w*\b", description, re.IGNORECASE):
                 category_count[category] += 1
-    return category_count
+    return dict(category_count)
