@@ -125,17 +125,17 @@ def empty_transaction():
 
 @pytest.fixture
 def description_transactions():
-    return  [
+    return [
         {"description": "Перевод организации"},
         {"description": "Перевод со счета на счет"},
         {"description": "Открытие вклада"},
-        {"description": "Перевод с карты на карту"}
+        {"description": "Перевод с карты на карту"},
     ]
 
 
 @pytest.fixture
 def count_categories():
-    return  [
+    return [
         {"description": "Перевод организации"},
         {"description": "Перевод со счета на счет"},
         {"description": "Открытие вклада"},
@@ -144,5 +144,5 @@ def count_categories():
         {"description": "Перевод с карты на карту"},
         {"description": "Перевод со счета на счет"},
         {"description": "Перевод с карты на карту"},
-        {"description": "Открытие вклада"}
+        {"description": "Открытие вклада"},
     ]
