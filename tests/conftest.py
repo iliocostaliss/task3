@@ -118,3 +118,31 @@ def one_transaction():
 @pytest.fixture
 def empty_transaction():
     return []
+
+
+"""Фикстуры для модуля test_transaction_utils.py"""
+
+
+@pytest.fixture
+def description_transactions():
+    return  [
+        {"description": "Перевод организации"},
+        {"description": "Перевод со счета на счет"},
+        {"description": "Открытие вклада"},
+        {"description": "Перевод с карты на карту"}
+    ]
+
+
+@pytest.fixture
+def count_categories():
+    return  [
+        {"description": "Перевод организации"},
+        {"description": "Перевод со счета на счет"},
+        {"description": "Открытие вклада"},
+        {"description": "Перевод организации"},
+        {"description": "Открытие вклада"},
+        {"description": "Перевод с карты на карту"},
+        {"description": "Перевод со счета на счет"},
+        {"description": "Перевод с карты на карту"},
+        {"description": "Открытие вклада"}
+    ]
